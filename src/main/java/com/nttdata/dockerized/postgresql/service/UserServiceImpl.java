@@ -38,6 +38,8 @@ public class UserServiceImpl implements UserService {
             user.setActive(Boolean.TRUE);
             return userRepository.save(user);
 
+        } catch (BadRequestException e) {
+            throw e;
         }catch (Exception e){
             throw new InternalServerErrorException("Error interno al guardar el usuario: " + e.getMessage());
         }
