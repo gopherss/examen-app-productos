@@ -1,6 +1,7 @@
 package com.nttdata.dockerized.postgresql.service;
 
 import com.nttdata.dockerized.postgresql.exception.BadRequestException;
+import com.nttdata.dockerized.postgresql.exception.InternalServerErrorException;
 import com.nttdata.dockerized.postgresql.exception.NotFoundException;
 import com.nttdata.dockerized.postgresql.model.entity.User;
 import com.nttdata.dockerized.postgresql.repository.UserRepository;
@@ -28,25 +29,31 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
+        try {
+            if (user.getName() == null || user.getName().isBlank() ||
+                    user.getEmail() == null || user.getEmail().isBlank()){
+                throw new BadRequestException("El Email y el nombre son obligatorios");
+            }
 
-        if (user.getName() == null || user.getName().isEmpty() ||
-                user.getEmail() == null || user.getEmail().isEmpty()){
-            throw new BadRequestException("El Email y el nombre son obligatorios");
+            user.setActive(Boolean.TRUE);
+            return userRepository.save(user);
+
+        } catch (BadRequestException e) {
+            throw e;
+        }catch (Exception e){
+            throw new InternalServerErrorException("Error interno al guardar el usuario: " + e.getMessage());
         }
-
-        user.setActive(Boolean.TRUE);
-        return userRepository.save(user);
     }
 
     @Override
     public User updateById(Long id, User user) {
         return userRepository.findById(id)
-                .map(existing -> {
-                    existing.setName(user.getName());
-                    existing.setEmail(user.getEmail());
-                    existing.setActive(user.getActive());
-                    existing.setRegistrationDate(user.getRegistrationDate());
-                    return userRepository.save(existing);
+                .map(userExisting -> {
+                    userExisting.setName(user.getName());
+                    userExisting.setEmail(user.getEmail());
+                    userExisting.setActive(user.getActive());
+                    userExisting.setRegistrationDate(user.getRegistrationDate());
+                    return userRepository.save(userExisting);
                 }).orElseThrow(() -> new NotFoundException("Usuario no encontrado para actualizar", "404"));
     }
 
