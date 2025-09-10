@@ -2,12 +2,16 @@ package com.nttdata.dockerized.postgresql.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -31,5 +35,4 @@ public class User {
     @Column
     @CreationTimestamp
     private Date registrationDate;
-
 }
