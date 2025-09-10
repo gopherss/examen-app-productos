@@ -7,11 +7,8 @@ import com.nttdata.dockerized.postgresql.model.dto.UserUpdateRequestDto;
 import com.nttdata.dockerized.postgresql.model.entity.User;
 import com.nttdata.dockerized.postgresql.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
 import static com.nttdata.dockerized.postgresql.mapper.UserMapper.INSTANCE;
 
 @RestController
@@ -22,41 +19,31 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public ResponseEntity<List<UserDto>> getAllUsers() {
-        return ResponseEntity.ok(INSTANCE.map(userService.listAll()));
+    public List<UserDto> getAllUsers() {
+        return INSTANCE.map(userService.listAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
+    public UserDto getUserById(@PathVariable Long id) {
         User user = userService.findById(id);
-        if (user == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(INSTANCE.map(user));
+
+        return INSTANCE.map(user);
     }
 
     @PostMapping
-    public ResponseEntity<UserSaveResponseDto> save(@RequestBody UserSaveRequestDto userSaveRequestDto) {
+    public UserSaveResponseDto save(@RequestBody UserSaveRequestDto userSaveRequestDto) {
         User userSaved = userService.save(INSTANCE.toEntity(userSaveRequestDto));
-        return ResponseEntity.ok(INSTANCE.toUserSaveResponseDto(userSaved));
+        return INSTANCE.toUserSaveResponseDto(userSaved);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserDto> update(@PathVariable Long id, @RequestBody UserUpdateRequestDto userUpdateRequestDto){
+    public UserDto update(@PathVariable Long id, @RequestBody UserUpdateRequestDto userUpdateRequestDto){
         User userUpdated = userService.updateById(id, INSTANCE.toEntity(userUpdateRequestDto));
-        if (userUpdated == null){
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(INSTANCE.map(userUpdated));
+        return INSTANCE.map(userUpdated);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
-        User userExisting = userService.findById(id);
-        if (userExisting == null){
-            return ResponseEntity.notFound().build();
-        }
+    public void delete(@PathVariable Long id){
         userService.deleteById(id);
-        return ResponseEntity.noContent().build();
     }
 }
