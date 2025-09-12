@@ -1,6 +1,7 @@
-package com.nttdata.user_and_category_ms.service;
+package com.nttdata.product_ms.service;
 
-import com.nttdata.dockerized.postgresql.model.entity.Category;
+
+import com.nttdata.product_ms.model.entity.Category;
 
 import java.util.List;
 

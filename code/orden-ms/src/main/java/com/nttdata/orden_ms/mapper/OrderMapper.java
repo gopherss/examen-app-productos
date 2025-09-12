@@ -1,11 +1,10 @@
 package com.nttdata.orden_ms.mapper;
 
-
-import com.nttdata.dockerized.postgresql.model.dto.OrderDto;
-import com.nttdata.dockerized.postgresql.model.dto.OrderSaveRequestDto;
-import com.nttdata.dockerized.postgresql.model.dto.OrderSaveResponseDto;
-import com.nttdata.dockerized.postgresql.model.dto.OrderUpdateRequestDto;
-import com.nttdata.dockerized.postgresql.model.entity.Order;
+import com.nttdata.orden_ms.model.dto.OrderDto;
+import com.nttdata.orden_ms.model.dto.OrderSaveRequestDto;
+import com.nttdata.orden_ms.model.dto.OrderSaveResponseDto;
+import com.nttdata.orden_ms.model.dto.OrderUpdateRequestDto;
+import com.nttdata.orden_ms.model.entity.Order;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

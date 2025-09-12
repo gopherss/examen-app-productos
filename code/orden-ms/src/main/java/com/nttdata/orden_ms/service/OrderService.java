@@ -1,6 +1,7 @@
 package com.nttdata.orden_ms.service;
 
-import com.nttdata.dockerized.postgresql.model.entity.Order;
+
+import com.nttdata.orden_ms.model.entity.Order;
 
 import java.util.List;
 

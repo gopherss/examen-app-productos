@@ -1,6 +1,7 @@
 package com.nttdata.product_ms.service;
 
-import com.nttdata.dockerized.postgresql.model.entity.Product;
+
+import com.nttdata.product_ms.model.entity.Product;
 
 import java.util.List;
 

@@ -1,9 +1,10 @@
 package com.nttdata.product_ms.service;
 
-import com.nttdata.dockerized.postgresql.exception.BadRequestException;
-import com.nttdata.dockerized.postgresql.exception.NotFoundException;
-import com.nttdata.dockerized.postgresql.model.entity.Product;
-import com.nttdata.dockerized.postgresql.repository.ProductRepository;
+
+import com.nttdata.product_ms.exception.BadRequestException;
+import com.nttdata.product_ms.exception.NotFoundException;
+import com.nttdata.product_ms.model.entity.Product;
+import com.nttdata.product_ms.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

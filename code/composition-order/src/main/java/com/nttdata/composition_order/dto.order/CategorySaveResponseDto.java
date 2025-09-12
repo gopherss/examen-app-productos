@@ -1,5 +1,4 @@
-package com.nttdata.user_and_category_ms.model.dto;
-
+package com.nttdata.composition_order.dto.order;
 
 import lombok.Getter;
 import lombok.Setter;

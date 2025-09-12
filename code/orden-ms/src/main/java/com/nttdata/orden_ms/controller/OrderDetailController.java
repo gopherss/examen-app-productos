@@ -1,16 +1,12 @@
 package com.nttdata.orden_ms.controller;
-import com.nttdata.dockerized.postgresql.model.dto.OrderDetailDto;
-import com.nttdata.dockerized.postgresql.model.dto.OrderDetailRequestDto;
-import com.nttdata.dockerized.postgresql.model.entity.Order;
-import com.nttdata.dockerized.postgresql.model.entity.OrderDetail;
-import com.nttdata.dockerized.postgresql.model.entity.Product;
-import com.nttdata.dockerized.postgresql.service.OrderDetailService;
-import com.nttdata.dockerized.postgresql.service.OrderService;
-import com.nttdata.dockerized.postgresql.service.ProductService;
+
+import com.nttdata.orden_ms.model.dto.OrderDetailDto;
+import com.nttdata.orden_ms.model.entity.Order;
+import com.nttdata.orden_ms.service.OrderDetailService;
+import com.nttdata.orden_ms.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import static com.nttdata.dockerized.postgresql.mapper.OrderDetailMapper.INSTANCE;
 
 @RestController
 @RequestMapping("/api/order-details")

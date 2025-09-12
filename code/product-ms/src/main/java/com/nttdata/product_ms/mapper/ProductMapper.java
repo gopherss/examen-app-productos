@@ -1,10 +1,11 @@
 package com.nttdata.product_ms.mapper;
 
-import com.nttdata.dockerized.postgresql.model.dto.ProductDto;
-import com.nttdata.dockerized.postgresql.model.dto.ProductSaveRequestDto;
-import com.nttdata.dockerized.postgresql.model.dto.ProductSaveResponseDto;
-import com.nttdata.dockerized.postgresql.model.dto.ProductUpdateRequestDto;
-import com.nttdata.dockerized.postgresql.model.entity.Product;
+
+import com.nttdata.product_ms.model.dto.ProductDto;
+import com.nttdata.product_ms.model.dto.ProductSaveRequestDto;
+import com.nttdata.product_ms.model.dto.ProductSaveResponseDto;
+import com.nttdata.product_ms.model.dto.ProductUpdateRequestDto;
+import com.nttdata.product_ms.model.entity.Product;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

@@ -1,9 +1,8 @@
 package com.nttdata.orden_ms.mapper;
 
-
-import com.nttdata.dockerized.postgresql.model.dto.OrderDetailDto;
-import com.nttdata.dockerized.postgresql.model.dto.OrderDetailRequestDto;
-import com.nttdata.dockerized.postgresql.model.entity.OrderDetail;
+import com.nttdata.orden_ms.model.dto.OrderDetailDto;
+import com.nttdata.orden_ms.model.dto.OrderDetailRequestDto;
+import com.nttdata.orden_ms.model.entity.OrderDetail;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
