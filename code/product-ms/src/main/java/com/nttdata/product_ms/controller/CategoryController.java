@@ -1,14 +1,18 @@
-package com.nttdata.user_and_category_ms.controller;
+package com.nttdata.product_ms.controller;
 
-import com.nttdata.dockerized.postgresql.model.dto.*;
-import com.nttdata.dockerized.postgresql.model.entity.Category;
-import com.nttdata.dockerized.postgresql.service.CategoryService;
+
+import com.nttdata.product_ms.model.dto.CategoryDto;
+import com.nttdata.product_ms.model.dto.CategorySaveRequestDto;
+import com.nttdata.product_ms.model.dto.CategorySaveResponseDto;
+import com.nttdata.product_ms.model.dto.CategoryUpdateRequestDto;
+import com.nttdata.product_ms.model.entity.Category;
+import com.nttdata.product_ms.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.nttdata.dockerized.postgresql.mapper.CategoryMapper.INSTANCE;
+import static com.nttdata.product_ms.mapper.CategoryMapper.INSTANCE;
 
 
 @RestController
@@ -37,7 +41,7 @@ public class CategoryController {
 
     @PutMapping("/{id}")
     public CategoryDto updateCategory(@PathVariable Long id,
-                                                      @RequestBody CategoryUpdateRequestDto dto) {
+                                      @RequestBody CategoryUpdateRequestDto dto) {
         Category updated = categoryService.updateById(id, INSTANCE.toEntity(dto));
 
         return INSTANCE.map(updated);
@@ -47,4 +51,5 @@ public class CategoryController {
     public void deleteCategory(@PathVariable Long id) {
         categoryService.deleteById(id);
     }
+
 }

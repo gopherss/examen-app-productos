@@ -1,6 +1,5 @@
 package com.nttdata.product_ms.model.entity;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +19,7 @@ public class Product {
     @Column(nullable = false)
     private Double price;
 
-    @Column(name = "category_id", nullable = false)
-    private Long categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 }

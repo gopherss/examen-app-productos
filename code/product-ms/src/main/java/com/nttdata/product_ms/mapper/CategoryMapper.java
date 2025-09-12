@@ -1,9 +1,12 @@
-package com.nttdata.user_and_category_ms.mapper;
+package com.nttdata.product_ms.mapper;
 
+import com.nttdata.product_ms.model.dto.CategoryDto;
+import com.nttdata.product_ms.model.dto.CategorySaveRequestDto;
+import com.nttdata.product_ms.model.dto.CategorySaveResponseDto;
+import com.nttdata.product_ms.model.dto.CategoryUpdateRequestDto;
+import com.nttdata.product_ms.model.entity.Category;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
-import com.nttdata.dockerized.postgresql.model.dto.*;
-import com.nttdata.dockerized.postgresql.model.entity.Category;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 

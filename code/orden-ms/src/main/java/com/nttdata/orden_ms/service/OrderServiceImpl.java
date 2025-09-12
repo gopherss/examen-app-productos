@@ -1,9 +1,9 @@
 package com.nttdata.orden_ms.service;
 
-import com.nttdata.dockerized.postgresql.exception.BadRequestException;
-import com.nttdata.dockerized.postgresql.exception.NotFoundException;
-import com.nttdata.dockerized.postgresql.model.entity.Order;
-import com.nttdata.dockerized.postgresql.repository.OrderRepository;
+import com.nttdata.orden_ms.exception.BadRequestException;
+import com.nttdata.orden_ms.exception.NotFoundException;
+import com.nttdata.orden_ms.model.entity.Order;
+import com.nttdata.orden_ms.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
