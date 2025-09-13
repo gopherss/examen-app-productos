@@ -57,10 +57,10 @@ public class StockServiceImpl  implements  StockService{
                 .mapToInt(Stock::getQuantity)
                 .sum();
 
-        FindByProductIdDto dto = new FindByProductIdDto();
-        dto.setProductId(productId);
-        dto.setTotal(totalQuantity);
+        FindByProductIdDto findByProductIdDto = new FindByProductIdDto();
+        findByProductIdDto.setProductId(productId);
+        findByProductIdDto.setTotal(totalQuantity);
 
-        return dto;
+        return findByProductIdDto;
     }
 }
