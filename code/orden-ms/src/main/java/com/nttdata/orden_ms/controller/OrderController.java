@@ -4,8 +4,11 @@ package com.nttdata.orden_ms.controller;
 import com.nttdata.orden_ms.model.dto.OrderDto;
 import com.nttdata.orden_ms.model.dto.OrderSaveRequestDto;
 import com.nttdata.orden_ms.model.dto.OrderSaveResponseDto;
+import com.nttdata.orden_ms.model.dto.OrderUpdateRequestDto;
 import com.nttdata.orden_ms.model.entity.Order;
+import com.nttdata.orden_ms.model.entity.User;
 import com.nttdata.orden_ms.service.OrderService;
+import com.nttdata.orden_ms.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
