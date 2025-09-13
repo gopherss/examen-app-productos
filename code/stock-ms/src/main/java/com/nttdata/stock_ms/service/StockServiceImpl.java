@@ -21,17 +21,17 @@ public class StockServiceImpl  implements  StockService{
     private final StockMapper stockMapper;
 
     @Override
-    public List<SaveStockResponseDto> saveStock(List<SaveStockRequestDto> requestDto) {
-        if (requestDto == null || requestDto.isEmpty()) {
+    public List<SaveStockResponseDto> saveStock(List<SaveStockRequestDto> requestDtoList) {
+        if (requestDtoList == null || requestDtoList.isEmpty()) {
             throw new BadRequestException("La lista de stock no puede estar vacía");
         }
-        requestDto.forEach(dto -> {
+        requestDtoList.forEach(dto -> {
             if (dto.getProductId() == null) throw new BadRequestException("El id de producto es necesario");
             if (dto.getWareHouseId() == null) throw new BadRequestException("El id del almacén es necesario");
             if (dto.getQuantity() == null) throw new BadRequestException("La cantidad es necesaria");
         });
 
-        var entities = requestDto.stream()
+        var entities = requestDtoList.stream()
                 .map(stockMapper::toEntity)
                 .toList();
 
@@ -57,10 +57,10 @@ public class StockServiceImpl  implements  StockService{
                 .mapToInt(Stock::getQuantity)
                 .sum();
 
-        FindByProductIdDto dto = new FindByProductIdDto();
-        dto.setProductId(productId);
-        dto.setTotal(totalQuantity);
+        FindByProductIdDto findByProductIdDto = new FindByProductIdDto();
+        findByProductIdDto.setProductId(productId);
+        findByProductIdDto.setTotal(totalQuantity);
 
-        return dto;
+        return findByProductIdDto;
     }
 }
