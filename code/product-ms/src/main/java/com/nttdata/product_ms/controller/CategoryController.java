@@ -22,7 +22,6 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-
     @GetMapping
     public List<CategoryDto>  getAllCategories() {
         return INSTANCE.map(categoryService.listAll());
